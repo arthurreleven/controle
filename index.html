@@ -135,7 +135,9 @@ body{
 </div>
 
 <script>
-const socket = new WebSocket("ws://10.153.168.228:8080");
+const params = new URLSearchParams(window.location.search);
+const host = params.get('ip') || window.location.hostname;
+const socket = new WebSocket(`ws://${host}:8080`);
 
 let state = {
     left:false,
